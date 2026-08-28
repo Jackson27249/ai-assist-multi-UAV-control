@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+recomputed/
+*.ulg
+04_px4/shards/
+04_px4/per_episode_figures/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out

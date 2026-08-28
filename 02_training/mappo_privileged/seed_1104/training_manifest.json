@@ -1,0 +1,13 @@
+{
+  "algorithm": "mappo",
+  "visibility": "privileged",
+  "seed": 1104,
+  "updates": 12,
+  "transitions_per_update": 768,
+  "epochs": 4,
+  "best_score": -2.0,
+  "jax_backend": "gpu",
+  "devices": [
+    "cuda:0"
+  ]
+}

@@ -1,0 +1,5 @@
+policy,num_agents,success_rate,collision_rate,episodes
+gcbf_local,3,1.0,0.0,100
+gcbf_local,5,1.0,0.0,100
+mappo_local,3,1.0,0.0,100
+mappo_local,5,1.0,0.0,100

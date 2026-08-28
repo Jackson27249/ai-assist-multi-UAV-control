@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code or data snapshot, please cite this repository."
+title: "Auditable AI-assisted discovery for multi-UAV control"
+type: software
+authors:
+  - family-names: "Jackson27249"
+repository-code: "https://github.com/Jackson27249/ai-assist-multi-UAV-control"
+url: "https://github.com/Jackson27249/ai-assist-multi-UAV-control"
+version: "1.0.0"
+date-released: "2026-08-28"
+license: MIT
+keywords:
+  - multi-UAV control
+  - graph control barrier function
+  - MAPPO
+  - PX4 SIH
+  - AI-assisted discovery

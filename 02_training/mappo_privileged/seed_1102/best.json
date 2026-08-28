@@ -1,0 +1,13 @@
+{
+  "algorithm": "mappo",
+  "visibility": "privileged",
+  "seed": 1102,
+  "update": 1,
+  "validation": {
+    "success_rate": 0.0,
+    "collision_rate": 1.0
+  },
+  "graph_actor": false,
+  "continuous_action": true,
+  "selection_score": -2.0
+}

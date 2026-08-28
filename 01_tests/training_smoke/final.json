@@ -1,0 +1,12 @@
+{
+  "algorithm": "gcbf",
+  "visibility": "local",
+  "seed": 1101,
+  "update": 1,
+  "validation": {
+    "success_rate": 0.1,
+    "collision_rate": 0.3
+  },
+  "graph_actor": true,
+  "continuous_action": true
+}

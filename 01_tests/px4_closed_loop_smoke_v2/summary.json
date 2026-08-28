@@ -1,0 +1,19 @@
+{
+  "episodes": 1,
+  "successful_telemetry_files": 1,
+  "failed_episodes": 0,
+  "image_qa": [
+    {
+      "telemetry_file": "gcbf_local_train1101_n3_seed41990.csv",
+      "png": "gcbf_local_train1101_n3_seed41990.png",
+      "pdf": "gcbf_local_train1101_n3_seed41990.pdf",
+      "width": 2160,
+      "height": 1440,
+      "rows": 60,
+      "curves": 3,
+      "min_pair_distance": 10.95523452758789,
+      "max_send_latency_ms": 3.4504190552979708
+    }
+  ],
+  "claim_boundary": "PX4 SIH validates flight-stack command tracking and multi-instance timing; obstacle-safety evidence remains simulator-based."
+}

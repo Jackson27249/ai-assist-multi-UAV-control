@@ -1,0 +1,69 @@
+CHANGE_BRANCH_FIELD=upgrade experiment / controller interface / discrete privileged sequential -> continuous local-graph simultaneous
+STATUS=PASS
+BASELINE_COMMIT=40e7e1cd39bb1aa0994827643a128b24aa1f4fe2
+ORIGINAL_SHA256=8e74f2e130fd05cdd4516731581956291fd4859e1a2d797ab424d751c20a9bbd
+MODIFIED_SHA256=5eb9c43a31c5703a7dd756ba40e2b3c7f84bcd015e43c8c86c406f384529e42f
+
+ARTIFACT_1=artifacts/MODIFIED_FILE
+ARTIFACT_2=artifacts/DIFF_FILE
+ARTIFACT_3=artifacts/VERIFICATION.txt
+ARTIFACT_4=artifacts/ROLLBACK.sh
+
+[BASELINE]
+COMMAND=ssh.exe autodl-uav-44402 '/root/miniconda3/bin/python -m pytest -q /root/autodl-tmp/uav_upgrade_20260825/original_workspace/test_city_uav.py'
+INPUT=baseline commit 40e7e1cd39bb1aa0994827643a128b24aa1f4fe2; original city_uav_env.py SHA256 8e74f2e130fd05cdd4516731581956291fd4859e1a2d797ab424d751c20a9bbd
+LITERAL_OUTPUT=............. [100%] / 13 passed in 7.16s
+EXIT_STATUS=0
+RESULT=baseline test suite passed
+
+[MODIFIED-DEPENDENCIES]
+COMMAND=ssh.exe autodl-uav-44402 'bash /root/autodl-tmp/uav_upgrade_20260825/source/run_upgrade.sh setup'
+INPUT=Python 3.10 isolated environment; CUDA 12 local runtime; requirements-upgrade.txt
+LITERAL_OUTPUT=jax=0.5.3; flax=0.10.6; jraph=0.0.6.dev0; optax=0.2.8; jax_backend=gpu; devices=[cuda:0]; DEPENDENCY_SMOKE_RESULT=PASS
+EXIT_STATUS=0
+RESULT=CUDA JAX dependency gate passed on RTX 4090
+
+[MODIFIED-TEST]
+COMMAND=ssh.exe autodl-uav-44402 '/root/autodl-tmp/uav_upgrade_20260825/.conda-env/bin/python -m pytest -q /root/autodl-tmp/uav_upgrade_20260825/source/test_upgrade.py'
+INPUT=continuous CityUAV environment, local/privileged graph observations, graph actor, simultaneous CBF filter
+LITERAL_OUTPUT=..... [100%] / 5 passed in 12.61s
+EXIT_STATUS=0
+RESULT=modified unit and information-isolation tests passed
+
+[MODIFIED-TRAINING]
+COMMAND=ssh.exe autodl-uav-44402 'bash /root/autodl-tmp/uav_upgrade_20260825/source/run_upgrade.sh train'
+INPUT=policies gcbf_local,gcbf_privileged,mappo_local,mappo_privileged; training seeds 1101..1105; 12 updates; 768 transitions/update; 4 epochs
+LITERAL_OUTPUT=TRAINING_MODELS=20; BEST_CHECKPOINTS=20; FINAL_CHECKPOINTS=20; TRAINING_HISTORIES=20
+EXIT_STATUS=0
+RESULT=all four policy families completed five independent training seeds
+
+[MODIFIED-SIMULATION]
+COMMAND=ssh.exe autodl-uav-44402 'python source/run_simulation.py --episodes 100 --seed-start 31000; python source/analyze_results.py --input results/03_simulation/raw_episodes/episode_results.jsonl'
+INPUT=5 learned-policy training seeds x 100 paired evaluation seeds x N=3,5,7,10 x static,dynamic,dense,wind,dropout; N=12 ood_dense; distributed CBF baseline
+LITERAL_OUTPUT=SIMULATION_ROWS=44000; ANALYSIS_RESULT=PASS rows=44000; INPUT_SHA256=7998ab87df8187bc7a350f010e9d727275617a96c3f27175ca8cf470ae175169
+EXIT_STATUS=0
+RESULT=episode labels, hierarchical bootstrap, Holm tests, mixed-effect logistic fit, tables and figures generated
+
+[MODIFIED-PX4]
+COMMAND=ssh.exe autodl-uav-44402 'bash /root/autodl-tmp/uav_upgrade_20260825/source/run_px4_missing.sh; python source/plot_px4_results.py --px4-root results/04_px4'
+INPUT=PX4 v1.17 SIH; gcbf_local and mappo_local; seeds 1101..1105; N=3,5; 20 episodes/model/cell; 3 s Offboard window
+LITERAL_OUTPUT=PX4_MISSING_RESULT=PASS episodes=400; PX4_PLOT_RESULT=PASS images=400; TELEMETRY=400; ULG=1600; PNG=400; PDF=400
+EXIT_STATUS=0
+RESULT=PX4 multi-instance telemetry, ULog, per-episode figures and summary figures generated
+
+[MODIFIED-ARTIFACT-REOPEN]
+COMMAND=ssh.exe autodl-uav-44402 'python artifact_reopen_verification'
+INPUT=all result JSON/JSONL/CSV/PNG/PDF plus 1600 ULog headers and 40 stratified full ULog parses
+LITERAL_OUTPUT=json=2714; jsonl_rows=88853; csv=834; png=411; pdf=409; ulg=1600; ulg_full_parse=40; errors=[]; result=PASS
+EXIT_STATUS=0
+RESULT=all claimed artifact formats reopened successfully
+
+[ROLLBACK]
+COMMAND="C:\Program Files\Git\bin\bash.exe" "C:/Users/27249/Desktop/优化算法/升级版/artifacts/ROLLBACK.sh" "C:/Users/27249/Desktop/优化算法/升级版/artifacts/city_uav_env.py" "C:/Users/27249/Desktop/优化算法/升级版/artifacts/rollback-test/target.py"
+INPUT=baseline original and a separate copy of MODIFIED_FILE
+LITERAL_OUTPUT=ROLLBACK_RESULT=PASS; ORIGINAL_SHA256=8e74f2e130fd05cdd4516731581956291fd4859e1a2d797ab424d751c20a9bbd; RESTORED_SHA256=8e74f2e130fd05cdd4516731581956291fd4859e1a2d797ab424d751c20a9bbd
+EXIT_STATUS=0
+RESTORED_BEHAVIOR_STATUS=baseline discrete CityUAV environment restored byte-for-byte in rollback test copy; active MODIFIED_FILE remains continuous local-graph version
+
+[SCIENTIFIC-BOUNDARY]
+PX4 SIH validates flight-stack command tracking and multi-instance timing over a 3 s Offboard window; obstacle-safety evidence remains simulator-based.

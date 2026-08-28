@@ -1,0 +1,13 @@
+{
+  "algorithm": "gcbf",
+  "visibility": "privileged",
+  "seed": 1105,
+  "update": 1,
+  "validation": {
+    "success_rate": 0.0,
+    "collision_rate": 0.1
+  },
+  "graph_actor": true,
+  "continuous_action": true,
+  "selection_score": -0.2
+}

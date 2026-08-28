@@ -1,0 +1,2 @@
+update,episodes,collision_rate,success_rate,interventions,infeasible,validation_success_rate,validation_collision_rate,barrier_loss,entropy,loss,policy_loss,value_loss,grad_l2,elapsed_seconds
+1,1.0,0.0,0.0,216.0,67.0,0.1,0.3,2.8374316692352295,-0.24288439750671387,2.529348611831665,0.001840353012084961,0.5126971006393433,14.129276221485583,32.033596992492676

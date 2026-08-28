@@ -1,0 +1,51 @@
+{
+  "rows": 10,
+  "policies": [
+    "distributed_cbf",
+    "gcbf_local",
+    "mappo_local"
+  ],
+  "training_seeds": [
+    -1,
+    1101
+  ],
+  "evaluation_seeds": [
+    31990,
+    31991
+  ],
+  "primary_tests": [
+    {
+      "num_agents": 3,
+      "gcbf_collision_mappo_safe": 0,
+      "gcbf_safe_mappo_collision": 2,
+      "discordant": 2,
+      "p_raw": 0.5,
+      "p_holm": 1.0
+    },
+    {
+      "num_agents": 5,
+      "gcbf_collision_mappo_safe": 0,
+      "gcbf_safe_mappo_collision": 0,
+      "discordant": 0,
+      "p_raw": 1.0,
+      "p_holm": 1.0
+    }
+  ],
+  "mixed_effect_logistic": {
+    "method": "BinomialBayesMixedGLM variational Bayes",
+    "n": 4,
+    "fixed_effect_names": [
+      "Intercept",
+      "C(policy)[T.mappo_local]"
+    ],
+    "fixed_effect_mean": [
+      -0.6546858605957466,
+      2.2814530062015783
+    ],
+    "fixed_effect_sd": [
+      1.075052895041442,
+      1.4022542729280023
+    ]
+  },
+  "input_sha256": "f985f55a99282009bd4007ef175d20cd6e32ba5c7d8b9e7a7bbc2f7fc254ed81"
+}

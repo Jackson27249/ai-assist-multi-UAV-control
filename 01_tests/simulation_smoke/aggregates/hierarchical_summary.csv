@@ -1,0 +1,11 @@
+policy,num_agents,scenario,metric,n,estimate,ci_low,ci_high
+distributed_cbf,3,dynamic,team_success,2,0.0,0.0,0.0
+distributed_cbf,3,dynamic,collision,2,0.5,0.0,1.0
+gcbf_local,3,dynamic,team_success,2,0.5,0.0,1.0
+gcbf_local,3,dynamic,collision,2,0.0,0.0,0.0
+gcbf_local,12,ood_dense,team_success,2,0.0,0.0,0.0
+gcbf_local,12,ood_dense,collision,2,1.0,1.0,1.0
+mappo_local,3,dynamic,team_success,2,0.0,0.0,0.0
+mappo_local,3,dynamic,collision,2,1.0,1.0,1.0
+mappo_local,12,ood_dense,team_success,2,0.0,0.0,0.0
+mappo_local,12,ood_dense,collision,2,1.0,1.0,1.0

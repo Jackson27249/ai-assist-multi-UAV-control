@@ -1,0 +1,21 @@
+{
+  "counts": {
+    "json": 2714,
+    "jsonl_rows": 88853,
+    "csv": 834,
+    "png": 411,
+    "pdf": 409,
+    "ulg": 1600,
+    "ulg_full_parse": 40
+  },
+  "errors": [],
+  "expected": {
+    "simulation_rows": 44000,
+    "px4_episodes": 400,
+    "px4_telemetry": 400,
+    "px4_ulg": 1600,
+    "px4_png": 400,
+    "px4_pdf": 400
+  },
+  "result": "PASS"
+}
