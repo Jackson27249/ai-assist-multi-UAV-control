@@ -215,10 +215,6 @@ All 400 PX4 SIH runs return telemetry without runtime error or inter-UAV contact
 \label{fig:px4}
 \end{figure*}
 
-\section{Artifact availability}
-
-Code, environment records, trained checkpoints, the 44,000 simulation episode records, PX4 episode summaries and telemetry, figures, logs and verification hashes are publicly available at \url{https://github.com/Jackson27249/ai-assist-multi-UAV-control} (release v1.0.0). These records permit independent recomputation of the reported aggregates. Low-level PX4 ULog binaries, duplicated sharded copies and per-episode renderings are excluded from the Git repository because they are not inputs to the reported aggregate calculations; the public manifest records the released snapshot.
-
 \section{Discussion}
 
 The two stages support one bounded mechanism-level conclusion. Under a shared evaluator, Stage I excludes nominal progress, instantaneous clearance and one Lagrangian cost as sufficient explanations for the observed small-team dynamic gains. Stage II changes the action space, information structure and controller implementation, yet preserves the qualitative effect of rejecting predicted barrier violations. This cross-implementation agreement is more informative than a score increase within either stage because most implementation details change while the proposed invariant is retained.
@@ -247,6 +243,10 @@ An evidence contract converted generated controller candidates into an independe
 \clearpage
 \appendix
 \raggedbottom
+\section{Artifact availability}
+
+Code, environment records, trained checkpoints, the 44,000 simulation episode records, PX4 episode summaries and telemetry, figures, logs and verification hashes are publicly available at \url{https://github.com/Jackson27249/ai-assist-multi-UAV-control} (release v1.0.0). These records permit independent recomputation of the reported aggregates. Low-level PX4 ULog binaries, duplicated sharded copies and per-episode renderings are excluded from the Git repository because they are not inputs to the reported aggregate calculations; the public manifest records the released snapshot.
+
 \section{Responsibility Allocation}
 
 \begin{table}[H]
