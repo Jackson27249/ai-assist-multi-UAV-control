@@ -17,6 +17,46 @@ This repository contains the code and structured evidence supporting the manuscr
 | `experiment_manifest.json` | Experiment inventory and provenance metadata |
 | `PUBLIC_MANIFEST.sha256` | SHA-256 checksums for every file in the public snapshot |
 
+## Figures used in the manuscript
+
+The figures below follow their order of appearance in the main text and appendix. Click a figure to open its publication-quality PDF when available.
+
+### Figure 1: Auditable AI-assisted discovery loop
+
+![Auditable AI-assisted discovery loop](paper/paper_assets/fig01_compact.png)
+
+### Figure 2: Stage-I mechanism screen
+
+[![Stage-I mechanism screen](paper/paper_assets/fig02_mechanism_screening.png)](paper/paper_assets/fig02_mechanism_screening.pdf)
+
+### Figure 3: Continuous-control scale test
+
+[![Continuous-control scale test](paper/paper_assets/fig05_continuous_scale.png)](paper/paper_assets/fig05_continuous_scale.pdf)
+
+### Figure 4: Information-symmetry ablation
+
+[![Information-symmetry ablation](paper/paper_assets/fig06_information_ablation.png)](paper/paper_assets/fig06_information_ablation.pdf)
+
+### Figure 5: PX4 SIH interface validation
+
+[![PX4 SIH interface validation](paper/paper_assets/fig07_px4_interface.png)](paper/paper_assets/fig07_px4_interface.pdf)
+
+### Figure 6: Independent safety-budget sweep
+
+[![Independent safety-budget sweep](paper/paper_assets/fig03_independent_budget_sweep.png)](paper/paper_assets/fig03_independent_budget_sweep.pdf)
+
+### Figure 7: RP coefficient sensitivity
+
+[![RP coefficient sensitivity](paper/paper_assets/figS1_rp_weight_sensitivity.png)](paper/paper_assets/figS1_rp_weight_sensitivity.pdf)
+
+### Figure 8: Complete successful dense-layout episode at N = 3
+
+[![Complete successful dense-layout episode at N = 3](paper/paper_assets/figS4_gcbf_n3_dense_success.png)](paper/paper_assets/figS4_gcbf_n3_dense_success.pdf)
+
+### Figure 9: Complete successful dense-layout episode at N = 5
+
+[![Complete successful dense-layout episode at N = 5](paper/paper_assets/figS5_gcbf_n5_dense_success.png)](paper/paper_assets/figS5_gcbf_n5_dense_success.pdf)
+
 ## Recompute the reported aggregates
 
 Create an environment from `source/requirements-upgrade.txt`, then run:
